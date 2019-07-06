@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWorkshop.ChangingPagexaml"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <ListView
+                x:Name="listView"
+                BackgroundColor="Transparent"
+                SeparatorColor="#E5E5E5"
+                SeparatorVisibility="Default"
+                VerticalOptions="Fill">
+                <ListView.RowHeight>
+                    <OnPlatform
+                        x:TypeArguments="x:Int32"
+                        Android="48"
+                        iOS="50" />
+                </ListView.RowHeight>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    FontAttributes="Bold"
+                                    FontSize="15"
+                                    Text="{Binding name}"
+                                    TextColor="Gray"
+                                    VerticalTextAlignment="Center" />
+                                <Label
+                                    Grid.Row="1"
+                                    FontSize="15"
+                                    Text="{Binding description}"
+                                    TextColor="Gray"
+                                    VerticalTextAlignment="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Clicked="Button_Clicked" Text="RefreshItems" />
+            <!--<Button Clicked="Button_Clicked_1" Text="Go Settings Plugin" />-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
